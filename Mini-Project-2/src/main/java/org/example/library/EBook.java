@@ -19,8 +19,8 @@ public class EBook extends MediaItem {
      */
     public EBook(String title, String author, String category, String downloadUrl) {
         super(title, author, category);
-        if (downloadUrl == null) {
-            throw new IllegalArgumentException("Download URL cannot be null");
+        if (downloadUrl == null || downloadUrl.isEmpty()) {
+            throw new IllegalArgumentException("Download URL cannot be null or empty");
         }
         this.downloadUrl = downloadUrl;
         logger.info(String.format("EBook created: %s", this));

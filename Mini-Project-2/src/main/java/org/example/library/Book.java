@@ -19,8 +19,8 @@ public class Book extends MediaItem {
      */
     public Book(String title, String author, String category, String isbn) {
         super(title, author, category);
-        if (isbn == null) {
-            throw new IllegalArgumentException("ISBN cannot be null");
+        if (isbn == null || isbn.isEmpty()) {
+            throw new IllegalArgumentException("ISBN cannot be null or empty");
         }
         this.isbn = isbn;
         logger.info(String.format("Book created: %s", this));
