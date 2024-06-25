@@ -8,8 +8,8 @@ public class simpleCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice = 0;
-        boolean validChoice = false;
 
+        boolean validChoice = false;
         while (!validChoice) {
             clearScreen();
             System.out.println("-----------------");
