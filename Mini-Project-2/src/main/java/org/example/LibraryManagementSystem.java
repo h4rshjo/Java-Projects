@@ -38,26 +38,56 @@ public class LibraryManagementSystem {
                     case 1:
                         System.out.print("Enter book title: ");
                         String bookTitle = scanner.nextLine();
+                        if (bookTitle.isEmpty()) {
+                            System.out.println("Title cannot be empty.");
+                            break;
+                        }
+
                         System.out.print("Enter book author: ");
                         String bookAuthor = scanner.nextLine();
+                        if (bookAuthor.isEmpty()) {
+                            System.out.println("Author cannot be empty.");
+                            break;
+                        }
+
                         System.out.print("Enter book category: ");
                         String bookCategory = scanner.nextLine();
+                        if (bookCategory.isEmpty()) {
+                            System.out.println("Category cannot be empty.");
+                            break;
+                        }
+
                         System.out.print("Enter book ISBN: ");
-                        String isbn = scanner.nextLine();
-                        Book book = new Book(bookTitle, bookAuthor, bookCategory, isbn);
+                        String bookIsbn = scanner.nextLine();
+                        Book book = new Book(bookTitle, bookAuthor, bookCategory, bookIsbn);
                         library.addItem(book);
                         break;
 
                     case 2:
                         System.out.print("Enter e-book title: ");
-                        String ebookTitle = scanner.nextLine();
+                        String eBookTitle = scanner.nextLine();
+                        if (eBookTitle.isEmpty()) {
+                            System.out.println("Title cannot be empty.");
+                            break;
+                        }
+
                         System.out.print("Enter e-book author: ");
-                        String ebookAuthor = scanner.nextLine();
+                        String eBookAuthor = scanner.nextLine();
+                        if (eBookAuthor.isEmpty()) {
+                            System.out.println("Author cannot be empty.");
+                            break;
+                        }
+
                         System.out.print("Enter e-book category: ");
-                        String ebookCategory = scanner.nextLine();
-                        System.out.print("Enter e-book download URL: ");
-                        String downloadUrl = scanner.nextLine();
-                        EBook eBook = new EBook(ebookTitle, ebookAuthor, ebookCategory, downloadUrl);
+                        String eBookCategory = scanner.nextLine();
+                        if (eBookCategory.isEmpty()) {
+                            System.out.println("Category cannot be empty.");
+                            break;
+                        }
+
+                        System.out.print("Enter e-book download link: ");
+                        String eBookDownloadLink = scanner.nextLine();
+                        EBook eBook = new EBook(eBookTitle, eBookAuthor, eBookCategory, eBookDownloadLink);
                         library.addItem(eBook);
                         break;
 

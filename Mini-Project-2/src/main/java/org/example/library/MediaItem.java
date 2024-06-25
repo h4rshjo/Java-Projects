@@ -20,14 +20,15 @@ public class MediaItem {
      * @param category The category of the media item.
      */
     public MediaItem(String title, String author, String category) {
-        if (title == null || author == null || category == null) {
-            throw new IllegalArgumentException("Title, author, and category cannot be null");
+        if (title == null || title.isEmpty() || author == null || author.isEmpty() || category == null || category.isEmpty()) {
+            throw new IllegalArgumentException("Title, author, and category cannot be null or empty");
         }
         this.title = title;
         this.author = author;
         this.category = category;
         logger.info(String.format("MediaItem created: %s", this));
     }
+
 
     // Getters for media item attributes
     public String getTitle() {
