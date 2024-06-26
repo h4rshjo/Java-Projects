@@ -13,7 +13,7 @@ The Library Management System is a Java-based application that allows users to m
 - Java 17 or higher
 - Maven 3.6.3 or higher
 
-c Installation
+## Installation
 1. Clone repository:
 ```bash
 git clone https://github.com/h4rshjo/Java-Training.git
