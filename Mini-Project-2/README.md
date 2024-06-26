@@ -5,10 +5,34 @@
 The Library Management System is a Java-based application that allows users to manage a collection of books and e-books. This project implements basic functionalities such as adding, removing, searching, and updating media items in the library. The system uses Object-Oriented Programming principles to manage different types of media items.
 
 ## Features
-
 - Add, remove, search, and update books and e-books.
 - Store book objects in a list.
 - Log actions performed on the library for easy debugging and tracking.
+
+## Prerequisites
+- Java 17 or higher
+- Maven 3.6.3 or higher
+
+## Installation
+1. Clone repository:
+```
+git clone https://github.com/h4rshjo/Java-Training.git
+cd Java-Training
+```
+2. Build project using Maven:
+```
+   mvn clean install
+```
+## Running the Application
+To run the application, execute the following command:
+```
+mvn exec:java -Dexec.mainClass="com.ArjayAquino.Main"
+```
+## Running Unit Tests
+To run the unit tests, use the following command:
+```
+mvn test
+```
 
 ## Classes and Functionality
 - MediaItem
