@@ -24,7 +24,7 @@ cd Java-Training
 mvn clean install
 ```
 
-##Running the Application
+## Running the Application
 To run the application, execute the following command:
 ```
 mvn exec:java -Dexec.mainClass="com.ArjayAquino.Main"
@@ -36,23 +36,23 @@ To run the unit tests, use the following command:
 mvn test
 ```
 ## Classes and Functionality
-# MediaItem
+## MediaItem
 - Represents a generic media item in the library.
 - Attributes: title, author, category.
-# Book
+## Book
 - Inherits from MediaItem.
 - Additional attribute: isbn.
-# EBook
+## EBook
 - Inherits from MediaItem.
 - Additional attribute: downloadUrl.
-# LibraryService
+## LibraryService
 - Manages the collection of MediaItem objects.
 - Methods: addItem, removeItem, searchItems, updateItem, displayAllItems.
-# LibraryServiceTest
+## LibraryServiceTest
 - Unit tests for the LibraryService class.
-# Main
+## Main
 - Main class to run the application.
 - Provides a menu for users to interact with the library.
-#Logging
+## Logging
 - Uses Java's built-in logging framework.
 - Logs actions such as adding, removing, searching, and updating items.
