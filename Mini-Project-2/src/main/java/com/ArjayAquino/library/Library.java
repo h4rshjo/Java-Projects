@@ -1,4 +1,4 @@
-package org.example.library;
+package com.ArjayAquino.library;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,7 @@ public class Library {
      * @param item The media item to add.
      */
     public void addItem(MediaItem item) {
+        // If there are no item, add it to the items
         if (item == null) {
             throw new IllegalArgumentException("Media item cannot be null");
         }
@@ -40,13 +41,17 @@ public class Library {
      */
     public void removeItem(String title, Class<? extends MediaItem> type) throws Exception {
         MediaItem itemToRemove = null;
+        // Iterate through the items collection
         for (MediaItem item : items) {
+            // Check if the item's title matches and assign the item for removal
             if (item.getTitle().equalsIgnoreCase(title) && type.isInstance(item)) {
                 itemToRemove = item;
                 break;
             }
         }
+        // Check if an item was found to remove
         if (itemToRemove != null) {
+            // Remove the item from the items collection
             items.remove(itemToRemove);
             logger.info(String.format("Item removed successfully: %s", itemToRemove));
         } else {
@@ -64,11 +69,14 @@ public class Library {
      */
     public List<MediaItem> searchItemsByTitle(String title, Class<? extends MediaItem> type) {
         List<MediaItem> foundItems = new ArrayList<>();
+        // Iterate through the items collection
         for (MediaItem item : items) {
+            // Check if the item's title matches, if match found, add the item to foundItems list
             if (item.getTitle().equalsIgnoreCase(title) && type.isInstance(item)) {
                 foundItems.add(item);
             }
         }
+        //Check if the item is found
         if (foundItems.isEmpty()) {
             logger.warning(String.format("No items found with title: %s and type: %s", title, type.getSimpleName()));
         } else {
@@ -82,31 +90,39 @@ public class Library {
     /**
      * Updates the details of a media item in the library.
      *
-     * @param oldTitle       The current title of the media item to update.
-     * @param type           The type of the media item to update (Book or EBook).
-     * @param newTitle       The new title of the media item.
-     * @param newAuthor      The new author of the media item.
-     * @param newCategory    The new category of the media item.
-     * @param newIsbn        The new ISBN of the media item (if applicable).
-     * @param newDownloadUrl The new download URL of the media item (if applicable).
-     * @throws Exception if the media item is not found.
+     * @param oldTitle          The current title of the media item to update.
+     * @param type              The type of the media item to update (Book or EBook).
+     * @param newTitle          The new title of the media item.
+     * @param newAuthor         The new author of the media item.
+     * @param newCategory       The new category of the media item.
+     * @param newIsbn           The new ISBN of the media item (if applicable).
+     * @param newDownloadUrl    The new download URL of the media item (if applicable).
+     * @throws Exception        if the media item is not found.
      */
     public void updateItem(String oldTitle, Class<? extends MediaItem> type, String newTitle, String newAuthor, String newCategory, String newIsbn, String newDownloadUrl) throws Exception {
         MediaItem itemToUpdate = null;
+        // Iterate through the items collection
         for (MediaItem item : items) {
+            //Check if the item's title matches, if match found, assign the item to itemToUpdate and exit the loop
             if (item.getTitle().equalsIgnoreCase(oldTitle) && type.isInstance(item)) {
                 itemToUpdate = item;
                 break;
             }
         }
+        // Check if an item was found to update
         if (itemToUpdate != null) {
+            // Depending on the type of itemToUpdate, update its attributes
             if (itemToUpdate instanceof Book) {
+                // Cast itemToUpdate to Book and update its attributes
                 Book book = (Book) itemToUpdate;
                 book = new Book(newTitle, newAuthor, newCategory, newIsbn);
+                // Replace the old item in the items list with the updated book
                 items.set(items.indexOf(itemToUpdate), book);
             } else if (itemToUpdate instanceof EBook) {
+                // Cast itemToUpdate to EBook and update its attributes
                 EBook eBook = (EBook) itemToUpdate;
                 eBook = new EBook(newTitle, newAuthor, newCategory, newDownloadUrl);
+                // Replace the old item in the items list with the updated ebook
                 items.set(items.indexOf(itemToUpdate), eBook);
             } else {
                 throw new Exception("Unsupported media item type");

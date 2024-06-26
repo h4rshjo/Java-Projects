@@ -1,4 +1,4 @@
-package org.example;
+package com.ArjayAquino;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

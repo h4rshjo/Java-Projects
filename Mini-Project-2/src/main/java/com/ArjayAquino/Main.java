@@ -1,9 +1,9 @@
-package org.example;
+package com.ArjayAquino;
 
-import org.example.library.Book;
-import org.example.library.EBook;
-import org.example.library.Library;
-import org.example.library.MediaItem;
+import com.ArjayAquino.library.Book;
+import com.ArjayAquino.library.EBook;
+import com.ArjayAquino.library.Library;
+import com.ArjayAquino.library.MediaItem;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 /**
  * Main class to run the Library Management System.
  */
-public class LibraryManagementSystem {
-    private static final Logger logger = Logger.getLogger(LibraryManagementSystem.class.getName());
+public class Main {
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
         Library library = new Library();

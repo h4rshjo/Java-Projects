@@ -1,4 +1,4 @@
-package org.example.library;
+package com.ArjayAquino.library;
 
 import java.util.logging.Logger;
 

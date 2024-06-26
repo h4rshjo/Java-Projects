@@ -1,9 +1,9 @@
-package org.example;
+package com.ArjayAquino;
 
-import org.example.library.Book;
-import org.example.library.EBook;
-import org.example.library.Library;
-import org.example.library.MediaItem;
+import com.ArjayAquino.library.Book;
+import com.ArjayAquino.library.EBook;
+import com.ArjayAquino.library.Library;
+import com.ArjayAquino.library.MediaItem;
 import org.junit.Before;
 import org.junit.Test;
 
