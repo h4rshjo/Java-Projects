@@ -111,7 +111,7 @@ public class Library {
         }
         // Check if an item was found to update
         if (itemToUpdate != null) {
-            
+
             // Depending on the type of itemToUpdate, update its attributes
             if (itemToUpdate instanceof Book) {
                 // Cast itemToUpdate to Book and update its attributes
