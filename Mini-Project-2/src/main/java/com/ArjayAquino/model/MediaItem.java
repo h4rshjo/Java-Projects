@@ -1,4 +1,4 @@
-package com.ArjayAquino.library;
+package com.ArjayAquino.model;
 
 import java.util.logging.Logger;
 
@@ -28,7 +28,6 @@ public class MediaItem {
         this.category = category;
         logger.info(String.format("MediaItem created: %s", this));
     }
-
 
     // Getters for media item attributes
     public String getTitle() {

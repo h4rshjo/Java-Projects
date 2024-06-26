@@ -1,9 +1,10 @@
 package com.ArjayAquino;
 
-import com.ArjayAquino.library.Book;
-import com.ArjayAquino.library.EBook;
-import com.ArjayAquino.library.Library;
-import com.ArjayAquino.library.MediaItem;
+import com.ArjayAquino.model.Book;
+import com.ArjayAquino.model.EBook;
+import com.ArjayAquino.model.MediaItem;
+import com.ArjayAquino.service.ILibraryService;
+import com.ArjayAquino.service.impl.LibraryService;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-        Library library = new Library();
+        ILibraryService library = new LibraryService();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -26,9 +27,10 @@ public class Main {
                 System.out.println("1. Add Book");
                 System.out.println("2. Add E-Book");
                 System.out.println("3. Remove Item");
-                System.out.println("4. Search Item by Title");
+                System.out.println("4. Search Item");
                 System.out.println("5. Update Item");
-                System.out.println("6. Exit");
+                System.out.println("6. Display All Items");
+                System.out.println("7. Exit");
                 System.out.print("Enter your choice: ");
 
                 int choice = scanner.nextInt();
@@ -109,8 +111,39 @@ public class Main {
                         break;
 
                     case 4:
-                        System.out.print("Enter item title to search: ");
-                        String titleToSearch = scanner.nextLine();
+                        System.out.println("Enter search criteria:");
+                        System.out.println("1. Title");
+                        System.out.println("2. Author");
+                        System.out.println("3. Category");
+                        System.out.println("4. ISBN (for books only)");
+                        System.out.println("5. Download URL (for e-books only)");
+                        System.out.print("Enter your choice: ");
+                        int searchCriteria = scanner.nextInt();
+                        scanner.nextLine();  // Consume newline
+                        String criteria = "";
+                        switch (searchCriteria) {
+                            case 1:
+                                criteria = "title";
+                                break;
+                            case 2:
+                                criteria = "author";
+                                break;
+                            case 3:
+                                criteria = "category";
+                                break;
+                            case 4:
+                                criteria = "isbn";
+                                break;
+                            case 5:
+                                criteria = "download url";
+                                break;
+                            default:
+                                System.out.println("Invalid criteria.");
+                                continue;
+                        }
+
+                        System.out.print("Enter search query: ");
+                        String searchQuery = scanner.nextLine();
                         System.out.println("1. Book");
                         System.out.println("2. E-Book");
                         System.out.print("Enter type of item to search (1 or 2): ");
@@ -118,9 +151,9 @@ public class Main {
                         scanner.nextLine();  // Consume newline
                         List<MediaItem> foundItems;
                         if (searchType == 1) {
-                            foundItems = library.searchItemsByTitle(titleToSearch, Book.class);
+                            foundItems = library.searchItems(searchQuery, Book.class, criteria);
                         } else if (searchType == 2) {
-                            foundItems = library.searchItemsByTitle(titleToSearch, EBook.class);
+                            foundItems = library.searchItems(searchQuery, EBook.class, criteria);
                         } else {
                             System.out.println("Invalid type.");
                             break;
@@ -159,6 +192,10 @@ public class Main {
                         break;
 
                     case 6:
+                        library.displayAllItems();
+                        break;
+
+                    case 7:
                         System.out.println("Exiting...");
                         scanner.close();
                         logger.info("Application exited");

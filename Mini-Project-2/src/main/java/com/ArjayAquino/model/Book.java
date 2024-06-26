@@ -1,4 +1,4 @@
-package com.ArjayAquino.library;
+package com.ArjayAquino.model;
 
 import java.util.logging.Logger;
 
