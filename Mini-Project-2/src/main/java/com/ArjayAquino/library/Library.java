@@ -111,17 +111,20 @@ public class Library {
         }
         // Check if an item was found to update
         if (itemToUpdate != null) {
+            
             // Depending on the type of itemToUpdate, update its attributes
             if (itemToUpdate instanceof Book) {
                 // Cast itemToUpdate to Book and update its attributes
                 Book book = (Book) itemToUpdate;
                 book = new Book(newTitle, newAuthor, newCategory, newIsbn);
+
                 // Replace the old item in the items list with the updated book
                 items.set(items.indexOf(itemToUpdate), book);
             } else if (itemToUpdate instanceof EBook) {
                 // Cast itemToUpdate to EBook and update its attributes
                 EBook eBook = (EBook) itemToUpdate;
                 eBook = new EBook(newTitle, newAuthor, newCategory, newDownloadUrl);
+
                 // Replace the old item in the items list with the updated ebook
                 items.set(items.indexOf(itemToUpdate), eBook);
             } else {
