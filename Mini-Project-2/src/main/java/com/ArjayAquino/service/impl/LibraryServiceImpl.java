@@ -3,7 +3,7 @@ package com.ArjayAquino.service.impl;
 import com.ArjayAquino.model.Book;
 import com.ArjayAquino.model.EBook;
 import com.ArjayAquino.model.MediaItem;
-import com.ArjayAquino.service.ILibraryService;
+import com.ArjayAquino.service.LibraryService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +12,14 @@ import java.util.logging.Logger;
 /**
  * Library Management System to manage media items.
  */
-public class LibraryService implements ILibraryService {
-    private static final Logger logger = Logger.getLogger(LibraryService.class.getName());
+public class LibraryServiceImpl implements LibraryService {
+    private static final Logger logger = Logger.getLogger(LibraryServiceImpl.class.getName());
     private List<MediaItem> items;
 
     /**
      * Constructor to create a new library.
      */
-    public LibraryService() {
+    public LibraryServiceImpl() {
         items = new ArrayList<>();
     }
 

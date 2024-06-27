@@ -3,7 +3,7 @@ package com.ArjayAquino.service.impl;
 import com.ArjayAquino.model.Book;
 import com.ArjayAquino.model.EBook;
 import com.ArjayAquino.model.MediaItem;
-import com.ArjayAquino.service.ILibraryService;
+import com.ArjayAquino.service.LibraryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,13 +11,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LibraryServiceTest {
+class LibraryServiceImplTest {
 
-    private ILibraryService libraryService;
+    private LibraryService libraryService;
 
     @BeforeEach
     void setUp() {
-        libraryService = new LibraryService();
+        libraryService = new LibraryServiceImpl();
     }
 
     @Test

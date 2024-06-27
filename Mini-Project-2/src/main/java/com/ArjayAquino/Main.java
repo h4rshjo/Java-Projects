@@ -3,8 +3,8 @@ package com.ArjayAquino;
 import com.ArjayAquino.model.Book;
 import com.ArjayAquino.model.EBook;
 import com.ArjayAquino.model.MediaItem;
-import com.ArjayAquino.service.ILibraryService;
-import com.ArjayAquino.service.impl.LibraryService;
+import com.ArjayAquino.service.LibraryService;
+import com.ArjayAquino.service.impl.LibraryServiceImpl;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-        ILibraryService library = new LibraryService();
+        LibraryService library = new LibraryServiceImpl();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {

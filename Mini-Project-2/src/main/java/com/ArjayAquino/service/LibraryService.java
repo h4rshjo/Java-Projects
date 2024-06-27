@@ -4,7 +4,7 @@ import com.ArjayAquino.model.MediaItem;
 
 import java.util.List;
 
-public interface ILibraryService {
+public interface LibraryService {
     void addItem(MediaItem item);
     void removeItem(String title, Class<? extends MediaItem> type) throws Exception;
     List<MediaItem> searchItems(String query, Class<? extends MediaItem> type, String criteria);
