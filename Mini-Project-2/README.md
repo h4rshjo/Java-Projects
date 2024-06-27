@@ -15,27 +15,28 @@ The Library Management System is a Java-based application that allows users to m
 
 ## Installation
 1. Clone repository:
-```
+```bash
 git clone https://github.com/h4rshjo/Java-Training.git
 cd Java-Training
 ```
 2. Build project using Maven:
 ```
-   mvn clean install
+mvn clean install
 ```
+
 ## Running the Application
 To run the application, execute the following command:
 ```
 mvn exec:java -Dexec.mainClass="com.ArjayAquino.Main"
 ```
+
 ## Running Unit Tests
 To run the unit tests, use the following command:
 ```
 mvn test
 ```
-
 ## Classes and Functionality
-- MediaItem
+## MediaItem
 - Represents a generic media item in the library.
 - Attributes: title, author, category.
 ## Book
@@ -44,10 +45,12 @@ mvn test
 ## EBook
 - Inherits from MediaItem.
 - Additional attribute: downloadUrl.
-## Library
+## LibraryService
 - Manages the collection of MediaItem objects.
-- Methods: addItem, removeItem, searchItemsByTitle, updateItem.
-## LibraryManagement
+- Methods: addItem, removeItem, searchItems, updateItem, displayAllItems.
+## LibraryServiceTest
+- Unit tests for the LibraryService class.
+## Main
 - Main class to run the application.
 - Provides a menu for users to interact with the library.
 ## Logging
