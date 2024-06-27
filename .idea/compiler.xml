@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="simpleCalculator" />
         <module name="Mini-Project-2" />
+        <module name="Mini-Project-3" />
       </profile>
     </annotationProcessing>
   </component>
