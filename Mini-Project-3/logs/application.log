@@ -1,0 +1,41 @@
+2024-06-28 10:51:47 INFO  Main:18 - Application started.
+2024-06-28 10:51:47 INFO  ProductServiceImpl:22 - ProductServiceImpl initialized.
+2024-06-28 10:51:47 INFO  Cart:26 - Cart created with an empty list of items.
+2024-06-28 10:51:47 INFO  CartServiceImpl:20 - CartServiceImpl initialized.
+2024-06-28 10:51:47 INFO  MenuServiceImpl:27 - MenuServiceImpl initialized.
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P1 - Apple
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P2 - Banana
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P3 - Orange
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P4 - Grapes
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P5 - Watermelon
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P6 - Pineapple
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P7 - Mango
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P8 - Strawberry
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P9 - Blueberry
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P10 - Raspberry
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P11 - Kiwi
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P12 - Papaya
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P13 - Cherry
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P14 - Peach
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P15 - Plum
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P16 - Nectarine
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P17 - Apricot
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P18 - Pomegranate
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P19 - Blackberry
+2024-06-28 10:51:54 INFO  Product:35 - Product created: P20 - Cantaloupe
+2024-06-28 10:51:54 INFO  ProductServiceImpl:38 - Loaded products from file: products.csv
+2024-06-28 10:51:54 INFO  MenuServiceImpl:88 - Displayed list of available products.
+2024-06-28 10:52:29 INFO  ProductServiceImpl:51 - Retrieved product by ID: P1 - found: true
+2024-06-28 10:52:30 INFO  Product:35 - Product created: P1 - Apple
+2024-06-28 10:52:30 INFO  Cart:45 - Added new product: P1 with quantity: 10
+2024-06-28 10:52:30 INFO  CartServiceImpl:26 - Added product to cart: P1 - quantity: 10
+2024-06-28 10:52:30 INFO  ProductServiceImpl:69 - Saved products to file: products.csv
+2024-06-28 10:52:30 INFO  ProductServiceImpl:61 - Updated product: P1
+2024-06-28 10:52:30 INFO  MenuServiceImpl:107 - Added product to cart: P1 - quantity: 10
+2024-06-28 10:52:33 INFO  MenuServiceImpl:150 - Displayed cart contents.
+2024-06-28 10:52:36 INFO  Cart:84 - Calculated total price: 9.90
+2024-06-28 10:52:39 WARN  MenuServiceImpl:170 - Insufficient payment. Total: 9.90 - Payment: 1
+2024-06-28 10:52:51 INFO  Cart:84 - Calculated total price: 9.90
+2024-06-28 10:52:54 INFO  MenuServiceImpl:167 - Checkout successful. Total: 9.90 - Payment: 10 - Change: 0.10
+2024-06-28 10:53:01 INFO  MenuServiceImpl:69 - User exited the menu.
+2024-06-28 10:53:01 INFO  Main:24 - Application ended.

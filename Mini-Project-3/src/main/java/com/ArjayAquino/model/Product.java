@@ -2,6 +2,8 @@ package com.ArjayAquino.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 
@@ -11,6 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class Product {
+    private static final Logger logger = LoggerFactory.getLogger(Product.class);
     private String productId;
     private String productName;
     private int quantity;
@@ -29,6 +32,7 @@ public class Product {
         this.productName = productName;
         this.quantity = quantity;
         this.price = BigDecimal.valueOf(price);
+        logger.info("Product created: {} - {}", productId, productName);
     }
 
     /**
@@ -47,6 +51,7 @@ public class Product {
      */
     public void setPrice(double price) {
         this.price = BigDecimal.valueOf(price);
+        logger.info("Price set for product {}: {}", productId, price);
     }
 
     /**

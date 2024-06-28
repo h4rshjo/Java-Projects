@@ -2,6 +2,8 @@ package com.ArjayAquino.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Cart {
+    private static final Logger logger = LoggerFactory.getLogger(Cart.class);
     private List<Product> items;
 
     /**
@@ -20,6 +23,7 @@ public class Cart {
      */
     public Cart() {
         this.items = new ArrayList<>();
+        logger.info("Cart created with an empty list of items.");
     }
 
     /**
@@ -32,11 +36,13 @@ public class Cart {
         for (Product p : items) { // Loop through items in the cart
             if (p.getProductId().equals(product.getProductId())) { // Check if product is already in the cart
                 p.setQuantity(p.getQuantity() + quantity);
+                logger.info("Updated product quantity: {} to {}", p.getProductId(), p.getQuantity());
                 return;
             }
         }
         Product newProduct = new Product(product.getProductId(), product.getProductName(), quantity, product.getPrice());
         items.add(newProduct);
+        logger.info("Added new product: {} with quantity: {}", product.getProductId(), quantity);
     }
 
     /**
@@ -55,8 +61,10 @@ public class Cart {
                 int newQuantity = currentQuantity - quantity;
                 if (newQuantity > 0) { // Update the quantity if more than zero
                     product.setQuantity(newQuantity);
+                    logger.info("Updated product quantity: {} to {}", productId, newQuantity);
                 } else { // Remove the product from the cart if quantity becomes zero
                     items.remove(product);
+                    logger.info("Removed product: {}", productId);
                 }
                 return;
             }
@@ -70,9 +78,11 @@ public class Cart {
      * @return the total price as BigDecimal
      */
     public BigDecimal calculateTotalPrice() {
-        return items.stream()
+        BigDecimal totalPrice = items.stream()
                 .map(product -> product.getPriceAsBigDecimal().multiply(BigDecimal.valueOf(product.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        logger.info("Calculated total price: {}", totalPrice);
+        return totalPrice;
     }
 
     @Override

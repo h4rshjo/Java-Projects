@@ -3,6 +3,8 @@ package com.ArjayAquino.service.impl;
 import com.ArjayAquino.model.Product;
 import com.ArjayAquino.service.CartService;
 import com.ArjayAquino.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
@@ -13,6 +15,7 @@ import java.util.Scanner;
  * Service for handling menu operations.
  */
 public class MenuServiceImpl {
+    private static final Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class);
     private final ProductService productService;
     private final CartService cartService;
     private final Scanner scanner;
@@ -21,6 +24,7 @@ public class MenuServiceImpl {
         this.productService = productService;
         this.cartService = cartService;
         this.scanner = new Scanner(System.in);
+        logger.info("MenuServiceImpl initialized.");
     }
 
     /**
@@ -62,11 +66,13 @@ public class MenuServiceImpl {
                         break;
                     case 6:
                         System.out.println("Exiting...");
+                        logger.info("User exited the menu.");
                         break;
                     default:
                         System.out.println("Invalid choice. Please try again.");
                 }
             } catch (IllegalArgumentException | InputMismatchException e) {
+                logger.error("Error in menu selection: {}", e.getMessage());
                 System.out.println(e.getMessage());
             }
         } while (choice != 6);
@@ -79,6 +85,7 @@ public class MenuServiceImpl {
         List<Product> products = productService.loadProducts("products.csv");
         System.out.printf("%-10s %-15s %-10s %-10s%n", "ID", "Name", "Quantity", "Price");
         products.forEach(System.out::println);
+        logger.info("Displayed list of available products.");
     }
 
     /**
@@ -97,11 +104,14 @@ public class MenuServiceImpl {
                 product.setQuantity(product.getQuantity() - quantity);
                 productService.updateProduct(product);
                 System.out.println("Product added to cart.");
+                logger.info("Added product to cart: {} - quantity: {}", productId, quantity);
             } else {
                 System.out.println("Invalid quantity.");
+                logger.warn("Attempted to add invalid quantity: {} for product: {}", quantity, productId);
             }
         } else {
             System.out.println("Product not found.");
+            logger.warn("Product not found: {}", productId);
         }
     }
 
@@ -121,11 +131,14 @@ public class MenuServiceImpl {
                 product.setQuantity(product.getQuantity() + quantity);
                 productService.updateProduct(product);
                 System.out.println("Product removed from cart.");
+                logger.info("Removed product from cart: {} - quantity: {}", productId, quantity);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
+                logger.error("Error removing product from cart: {}", e.getMessage());
             }
         } else {
             System.out.println("Product not found.");
+            logger.warn("Product not found: {}", productId);
         }
     }
 
@@ -134,6 +147,7 @@ public class MenuServiceImpl {
      */
     private void viewCart() {
         System.out.println(cartService.viewCart());
+        logger.info("Displayed cart contents.");
     }
 
     /**
@@ -150,8 +164,10 @@ public class MenuServiceImpl {
         if (payment.compareTo(total) >= 0) { // Check if payment is sufficient
             BigDecimal change = payment.subtract(total);
             System.out.println("Payment successful. Change: " + change);
+            logger.info("Checkout successful. Total: {} - Payment: {} - Change: {}", total, payment, change);
         } else {
             System.out.println("Insufficient payment. Please try again.");
+            logger.warn("Insufficient payment. Total: {} - Payment: {}", total, payment);
         }
     }
 }
